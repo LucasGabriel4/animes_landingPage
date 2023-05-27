@@ -1,0 +1,357 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 10px 0;
+
+}
+
+
+header > .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo{
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    animation: animateLogo 5s forwards infinite;
+    z-index: -1;
+}
+
+header nav.menu li{
+    display: inline-block;
+}
+
+header nav.menu li a{
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+    position: relative;
+}
+
+
+header nav.menu li a::after{
+   content: '';
+   width: 0;
+   height:3px;
+   position: absolute;
+   top: 23px;
+   left: 0;
+   bottom: 0;
+   background-color: red;
+   transition: all .5s;
+}
+
+header nav.menu li a:hover::after{
+    width: 100%;
+    transition: all .5s;
+ }
+
+
+ header nav.mobile{
+    display: none;
+ }
+
+
+
+ .btn-mobile{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+ }
+
+ .btn-mobile .line{
+    width: 25px;
+    height: 3px;
+    background-color: red;
+    margin: 5px auto;
+    transform-origin: center;
+    transition: all .5s;
+
+ }
+
+ .btn-mobile.active .line:nth-child(1){
+    transform: translateY(12px) rotate(-45deg);
+ }
+
+
+ .btn-mobile.active .line:nth-child(2){
+    background-color: transparent;
+ }
+
+ .btn-mobile.active .line:nth-child(3){
+    transform: translateY(-4px) rotate(44deg);
+ }
+
+
+ 
+
+ header nav.mobile .bg{
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    display: none;
+    animation: fade 1s forwards;
+    z-index: -1;
+ }
+
+ 
+ header nav.mobile .bg.active{
+    display: block;
+ }
+
+ header nav.mobile ul{
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 200px;
+    background-color: rgb(211, 12, 12);
+    padding: 20px 0;
+    text-align: center;
+
+ }
+
+ header nav.mobile li{
+    list-style: none;
+ }
+
+ header nav.mobile a{
+    margin-top: 5px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    position: relative;
+ }
+
+ header nav.mobile li a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: all .5s;
+ }
+
+ header nav.mobile li a:hover::after{
+    width: 100%;
+ }
+
+
+
+section.banner{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+  
+    
+
+}
+
+
+section.banner .slide-img img{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    animation: fade 1s forwards;
+
+}
+
+
+section.banner > .container{
+  position: relative;
+  top: 150px;
+}
+
+
+section.banner .content,
+section.banner .slide-img{
+    display: none;
+}
+
+section.banner .content.active,
+section.banner .slide-img.active{
+    display: block;
+}
+
+
+section.banner  .content{
+  color: white;
+  animation: fade 1s forwards;
+}
+
+section.banner  .content h1{
+    font-size: 5rem;
+}
+
+section.banner  .content p{
+    font-size: 1rem;
+    max-width: 700px;
+}
+
+
+
+section.banner .content a{
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    background-color: red;
+    margin-top: 30px;
+    display: inline-block;
+    transition: all .5s;
+}
+
+section.banner .content a:hover{
+  background-color: #000;
+}
+
+
+.navigation-slide{
+    display: flex;
+    position: relative;
+    top: 120px;
+    justify-content: center;
+
+}
+
+section.banner .navigation-slide .nav-btn{
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin: 0 10px;
+    background-color: white;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+section.banner .navigation-slide .nav-btn:hover{
+  transform: scale(1.2);
+}
+
+section.banner .navigation-slide .nav-btn.active{
+   background-color: red;
+}
+
+
+@keyframes animateLogo{
+    0%{
+        transform: scale(1);
+    }
+    10%{
+        transform: scale(1.3);
+    }
+    30%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.3);
+    }
+    70%{
+        transform: scale(1);
+    }
+    90%{
+        transform: scale(1.3);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+
+@keyframes fade{
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+.trailer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    z-index: 333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    
+}
+
+.trailer.active{
+   opacity: 1;
+   visibility: visible;
+   animation: fade .8s forwards;
+}
+
+.trailer .hideTrailer i{
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 40px;
+    cursor: pointer;
+    
+}
+
+.video{
+    width: 100%;
+    max-width: 700px;
+}
+
+
+
+@media screen and (max-width: 700px){
+    header nav.menu{
+        display: none;
+    }
+
+    header nav.mobile{
+        display: block;
+    }
+
+  
+    section.banner  .content h1{
+        font-size: 2.8rem;
+    }
+    
+}
